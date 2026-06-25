@@ -70,7 +70,7 @@ jobs:
           $version = "v5.7.1"
 
           Invoke-WebRequest `
-            -Uri "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/$version/kustomize_${version}_windows_amd64.zip" `
+            -Uri "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F$version/kustomize_${version}_windows_amd64.zip" `
             -OutFile kustomize.zip
 
           Expand-Archive kustomize.zip -DestinationPath .
