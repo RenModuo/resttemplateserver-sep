@@ -65,7 +65,19 @@ jobs:
 
       
       - name: Install kustomize
-        uses: imranismail/setup-kustomize@v2    
+        shell: pwsh
+        run: |
+          $version = "v5.7.1"
+
+          Invoke-WebRequest `
+            -Uri "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/$version/kustomize_${version}_windows_amd64.zip" `
+            -OutFile kustomize.zip
+
+          Expand-Archive kustomize.zip -DestinationPath .
+
+          echo "$PWD" | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
+          .\kustomize.exe version    
 
       - name: Update image tag
         shell: pwsh
