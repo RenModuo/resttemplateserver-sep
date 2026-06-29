@@ -11,4 +11,4 @@ public class ResttemplateserverApplication {
 	}
 
 }
-//test 1
+//test
